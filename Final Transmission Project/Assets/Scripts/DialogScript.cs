@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogScript : MonoBehaviour {
 
     [TextArea]
-    public string[] textOptions1;
+    public string[] act1DialogText;
 
 	// Use this for initialization
 	void Start () {

@@ -6,10 +6,11 @@ using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-
     public TMP_Text dialogText;
 
     public bool isOptionSelect;
+
+    public int currentAct;
     public bool dialog1;
     public bool dialog2;
     public bool dialog3;
@@ -18,12 +19,18 @@ public class DialogManager : MonoBehaviour
     public float timeTillOption;
     float timer;
 
+    DialogScript dScript;
+
     // Use this for initialization
     void Awake()
     {
-        dialogText.text = "Test";
+        dScript = GetComponent<DialogScript>();
+
+        dialogText.text = "";
 
         isOptionSelect = false;
+
+        currentAct = 1;
     }
 
     // Update is called once per frame
@@ -35,23 +42,32 @@ public class DialogManager : MonoBehaviour
         {
             timer = 0;
 
-            if (dialog1)
+            switch (currentAct)
             {
-                dialogText.text = "Option 1";
+                case 1:
+                    if (dialog1)
+                    {
+                        dialogText.text = dScript.act1DialogText[0];
 
-                isOptionSelect = false;
-            }
-            else if (dialog2)
-            {
-                dialogText.text = "Option 2";
+                        isOptionSelect = false;
+                    }
+                    else if (dialog2)
+                    {
+                        dialogText.text = dialogText.text = dScript.act1DialogText[1];
 
-                isOptionSelect = false;
-            }
-            else if (dialog3)
-            {
-                dialogText.text = "Option 3";
+                        isOptionSelect = false;
+                    }
+                    else if (dialog3)
+                    {
+                        dialogText.text = dialogText.text = dScript.act1DialogText[2];
 
-                isOptionSelect = false;
+                        isOptionSelect = false;
+                    }
+                    break;
+
+                default:             
+                    print("ERROR!!");
+                    break;
             }
         }
         else
@@ -64,7 +80,7 @@ public class DialogManager : MonoBehaviour
 
             if (timer >= timeTillNextDialog)
             {
-                dialogText.text = "Next Text";
+                dialogText.text = dScript.act1DialogText[0];
             }
 
             if (timer >= timeTillOption)
@@ -72,7 +88,6 @@ public class DialogManager : MonoBehaviour
                 isOptionSelect = true;
             }
         }
-
     }
 
     public void DialogButton1()

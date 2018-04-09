@@ -172,10 +172,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2503211a3705c946996ada259c14c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textOptions1:
+  act1DialogText:
   - Hello 1
-  - "Hello 1\t"
-  - Hello 1
+  - Hello 2
+  - 'Hello 3
+
+'
 --- !u!1 &424325769
 GameObject:
   m_ObjectHideFlags: 0
