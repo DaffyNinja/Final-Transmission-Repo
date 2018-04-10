@@ -6,9 +6,11 @@ public class DialogScript : MonoBehaviour {
 
     [TextArea]
     public string[] act1DialogText;
+    [TextArea]
+    public string[] act1DialogOptions;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
