@@ -11,6 +11,8 @@ public class DialogManager : MonoBehaviour
     public bool isOptionSelect;
 
     public int currentAct;
+    //public int lineNUm;
+
     bool dialog1;
     bool dialog2;
     bool dialog3;
@@ -33,18 +35,16 @@ public class DialogManager : MonoBehaviour
     {
         dScript = GetComponent<DialogScript>();
 
-        dialogText.text = "";
+        //dialogText.text = "";
 
         isOptionSelect = false;
-
-        currentAct = 1;
 
         optionsButtonObj1.SetActive(false);
         optionsButtonObj2.SetActive(false);
         optionsButtonObj3.SetActive(false);
         nextButton.SetActive(false);
 
-        dialogText.text = dScript.act1DialogText[dialogLineNum];
+        dialogText.text = "Start";
 
     }
 
@@ -60,13 +60,81 @@ public class DialogManager : MonoBehaviour
             switch (currentAct)
             {
                 case 1:
+                    // dialog1 = true;
                     optionsButtonObj1.SetActive(true);
+                    optionsButtonObj1.GetComponentInChildren<Text>().text = dScript.act1DialogOptions[0];
+
                     if (dialog1)
                     {
-                        dialogText.text = dScript.act1DialogOptions[0];
+                        dialogText.text = dScript.act1OptionStoryText[0];
+                        // optionsButtonObj1.SetActive(true);
+                        currentAct += 1;
+                        dialogLineNum = 0;
+                        isOptionSelect = false;
+                    }
+                    break;
+
+                case 2:
+                    optionsButtonObj1.SetActive(true);
+                    optionsButtonObj1.GetComponentInChildren<Text>().text = dScript.act2DialogOptions[0];
+
+                    optionsButtonObj2.SetActive(true);
+                    optionsButtonObj2.GetComponentInChildren<Text>().text = dScript.act2DialogOptions[1];
+
+                    if (dialog1)
+                    {
+                        dialogText.text = dScript.act2OptionStoryText[0];
+                        currentAct += 1;
+                        dialogLineNum = 0;
 
                         isOptionSelect = false;
                     }
+                    else if (dialog2)
+                    {
+                        dialogText.text = dScript.act2OptionStoryText[1];
+                        currentAct += 1;
+                        dialogLineNum = 0;
+
+                        isOptionSelect = false;
+                    }
+
+                    break;
+
+                case 3:
+                    optionsButtonObj1.SetActive(true);
+                    optionsButtonObj1.GetComponentInChildren<Text>().text = dScript.act3DialogOptions[0];
+
+                    optionsButtonObj2.SetActive(true);
+                    optionsButtonObj2.GetComponentInChildren<Text>().text = dScript.act3DialogOptions[1];
+
+                    optionsButtonObj3.SetActive(true);
+                    optionsButtonObj3.GetComponentInChildren<Text>().text = dScript.act3DialogOptions[2];
+
+                    if (dialog1)
+                    {
+                        dialogText.text = dScript.act3OptionStoryText[0];
+
+                        dialogLineNum = 0;
+
+                        isOptionSelect = false;
+                    }
+                    else if (dialog2)
+                    {
+                        dialogText.text = dScript.act3OptionStoryText[1];
+
+                        dialogLineNum = 0;
+
+                        isOptionSelect = false;
+                    }
+                    else if (dialog3)
+                    {
+                        dialogText.text = dScript.act3OptionStoryText[2];
+
+                        dialogLineNum = 0;
+
+                        isOptionSelect = false;
+                    }
+
                     break;
 
                 default:
@@ -77,6 +145,8 @@ public class DialogManager : MonoBehaviour
         else
         {
             timer += Time.fixedDeltaTime;
+
+
 
             dialog1 = false;
             dialog2 = false;
@@ -89,17 +159,28 @@ public class DialogManager : MonoBehaviour
             if (timer >= timeTillNextDialog)
             {
                 nextButton.SetActive(true);
-                dialogText.text = dScript.act1DialogText[dialogLineNum];
 
+                // dialogText.text = dScript.act1DialogText[dialogLineNum];
+                // dialogLineNum += 1;
                 timer = 0;
-                
             }
 
             // CHange from timer based to change when dialog option line number is available
-            if (timer >= timeTillOption)
+            if (dialogLineNum >= 3 && currentAct == 1)
             {
                 isOptionSelect = true;
             }
+
+            if (dialogLineNum >= 3 && currentAct == 2)
+            {
+                isOptionSelect = true;
+            }
+
+            if (dialogLineNum >= 3 && currentAct == 3)
+            {
+                isOptionSelect = true;
+            }
+
         }
     }
 
@@ -126,8 +207,30 @@ public class DialogManager : MonoBehaviour
 
     public void NextButton()
     {
-        dialogLineNum += 1;
+        // dialogLineNum += 1;
         timer = 0;
+
+        switch (currentAct)
+        {
+            case 1:
+                dialogText.text = dScript.act1DialogText[dialogLineNum];
+                dialogLineNum += 1;
+                break;
+
+            case 2:
+                dialogText.text = dScript.act2DialogText[dialogLineNum];
+                dialogLineNum += 1;
+                break;
+
+            case 3:
+                dialogText.text = dScript.act3DialogText[dialogLineNum];
+                dialogLineNum += 1;
+                break;
+            default:
+                print("ERROR!!!");
+                break;
+        }
+
         nextButton.SetActive(false);
     }
 }

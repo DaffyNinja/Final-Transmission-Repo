@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: {fileID: 1153385036}
   isOptionSelect: 0
-  currentAct: 0
+  currentAct: 1
   timeTillNextDialog: 3
   timeTillOption: 15
   optionsButtonObj1: {fileID: 424325769}
@@ -182,6 +182,32 @@ MonoBehaviour:
 '
   act1DialogOptions:
   - Option 1
+  act1OptionStoryText:
+  - Act 1 Option Text
+  act2DialogText:
+  - Act 2 Text 1
+  - Act 2 Text 2
+  - 'Act 2 Text 3
+
+'
+  act2DialogOptions:
+  - Act 2 Option 1
+  - Act 2 Option 2
+  act2OptionStoryText:
+  - Act 2 Option Text 1
+  - Act 2 Option Text 2
+  act3DialogText:
+  - Act 3 Text 1
+  - Act 3 Text 2
+  - Act 3 Text 3
+  act3DialogOptions:
+  - Act 3 Option 1
+  - Act 3 Option 2
+  - Act 3 Option 3
+  act3OptionStoryText:
+  - Act 3 Option Text 1
+  - Act 2 Option Text 2
+  - Act 3 Option Text 3
 --- !u!1 &213201511
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +708,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: -110}
+  m_AnchoredPosition: {x: -1, y: -110}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122156756
