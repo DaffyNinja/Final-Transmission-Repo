@@ -44,7 +44,7 @@ public class DialogManager : MonoBehaviour
         optionsButtonObj3.SetActive(false);
         nextButton.SetActive(false);
 
-        dialogText.text = "Start";
+        dialogText.text = "Hello?"; 
 
     }
 
@@ -146,8 +146,6 @@ public class DialogManager : MonoBehaviour
         {
             timer += Time.fixedDeltaTime;
 
-
-
             dialog1 = false;
             dialog2 = false;
             dialog3 = false;
@@ -160,23 +158,21 @@ public class DialogManager : MonoBehaviour
             {
                 nextButton.SetActive(true);
 
-                // dialogText.text = dScript.act1DialogText[dialogLineNum];
-                // dialogLineNum += 1;
                 timer = 0;
             }
 
-            // CHange from timer based to change when dialog option line number is available
-            if (dialogLineNum >= 3 && currentAct == 1)
+           
+            if (dialogLineNum >= dScript.act1DialogText.Length && currentAct == 1)
             {
                 isOptionSelect = true;
             }
 
-            if (dialogLineNum >= 3 && currentAct == 2)
+            if (dialogLineNum >= dScript.act2DialogText.Length && currentAct == 2)
             {
                 isOptionSelect = true;
             }
 
-            if (dialogLineNum >= 3 && currentAct == 3)
+            if (dialogLineNum >= dScript.act3DialogText.Length && currentAct == 3)
             {
                 isOptionSelect = true;
             }
