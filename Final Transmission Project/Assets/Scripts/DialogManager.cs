@@ -8,6 +8,10 @@ public class DialogManager : MonoBehaviour
 {
     public TMP_Text dialogText;
 
+    public TMP_Text buttonText1;
+    public TMP_Text buttonText2;
+    public TMP_Text buttonText3;
+
     public bool isOptionSelect;
 
     public int currentAct;
@@ -51,7 +55,7 @@ public class DialogManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        print(timer.ToString());
+        //print(timer.ToString());
 
         if (isOptionSelect)
         {
@@ -62,7 +66,7 @@ public class DialogManager : MonoBehaviour
                 case 1:
                     // dialog1 = true;
                     optionsButtonObj1.SetActive(true);
-                    optionsButtonObj1.GetComponentInChildren<Text>().text = dScript.act1DialogOptions[0];
+                    buttonText1.text = dScript.act1DialogOptions[0];
 
                     if (dialog1)
                     {
@@ -76,10 +80,10 @@ public class DialogManager : MonoBehaviour
 
                 case 2:
                     optionsButtonObj1.SetActive(true);
-                    optionsButtonObj1.GetComponentInChildren<Text>().text = dScript.act2DialogOptions[0];
+                    buttonText1.text = dScript.act2DialogOptions[0];
 
                     optionsButtonObj2.SetActive(true);
-                    optionsButtonObj2.GetComponentInChildren<Text>().text = dScript.act2DialogOptions[1];
+                    buttonText2.text = dScript.act2DialogOptions[1];
 
                     if (dialog1)
                     {
@@ -102,13 +106,13 @@ public class DialogManager : MonoBehaviour
 
                 case 3:
                     optionsButtonObj1.SetActive(true);
-                    optionsButtonObj1.GetComponentInChildren<Text>().text = dScript.act3DialogOptions[0];
+                    buttonText1.text = dScript.act3DialogOptions[0];
 
                     optionsButtonObj2.SetActive(true);
-                    optionsButtonObj2.GetComponentInChildren<Text>().text = dScript.act3DialogOptions[1];
+                    buttonText2.text = dScript.act3DialogOptions[1];
 
                     optionsButtonObj3.SetActive(true);
-                    optionsButtonObj3.GetComponentInChildren<Text>().text = dScript.act3DialogOptions[2];
+                    buttonText3.text = dScript.act3DialogOptions[2];
 
                     if (dialog1)
                     {

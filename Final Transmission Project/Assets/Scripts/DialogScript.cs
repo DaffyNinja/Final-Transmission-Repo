@@ -25,13 +25,4 @@ public class DialogScript : MonoBehaviour {
     [TextArea]
     public string[] act3OptionStoryText;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
